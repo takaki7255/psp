@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "['/usr/local/var/pyenv/versions/3.9.7/lib/python3.9/site-packages']",
+        "./NAFNet"
+    ]
+}
