@@ -1,7 +1,12 @@
 import cv2
 
+# 現在日時の取得
+import datetime
+now = datetime.datetime.now()
+now = now.strftime("%Y%m%d_%H%M%S")
+
 # 画像ファイルを読み込みます
-img = cv2.imread('./run/psp/Camera_1000002のコピー.tif')
+img = cv2.imread('./test_img/density9x9.jpg')
 
 # ウィンドウを作成して、画像を表示します
 cv2.namedWindow('image')
@@ -33,7 +38,9 @@ def crop_image(event, x, y, flags, param):
 
         # 切り抜いた画像を新しいウィンドウに表示します
         cv2.imshow('cropped image', cropped_img)
-        cv2.imwrite('./test_img/cropped.jpg', cropped_img)
+        # 画像を現在日時をファイル名にして保存します
+        cv2.imwrite('./test_img/cropped_img' + str(now) + '.jpg', cropped_img)
+
 
 # マウスイベントのコールバック関数を設定します
 cv2.setMouseCallback('image', crop_image)
